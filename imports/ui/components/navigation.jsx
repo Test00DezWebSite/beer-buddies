@@ -26,6 +26,7 @@ export class Navigation extends React.Component {
 			    <div className="collapse navbar-collapse" id="main-nav">
 			      <ul className="nav navbar-nav">
 			        <li><IndexLink to="/" activeClassName="active">Dashboard</IndexLink></li>
+			        <li><Link to="/beers/new">New Beer</Link></li>
 					<li><a href="#" onClick={this.logout}>Logout</a></li>
 			      </ul>
 			    </div>

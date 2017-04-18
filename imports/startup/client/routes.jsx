@@ -1,10 +1,20 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
+import { Meteor } from 'meteor/meteor';
 import { App } from '../../ui/layouts/app.jsx';
 import { Dashboard } from '../../ui/components/beers/dashboard.jsx';
 import LoginRegistration from  '../../ui/components/loginRegistration.jsx';
+import NewBeer from '../../ui/pages/NewBeer.js';
+
+const authenticate = (nextState, replace) => {
+  if (!Meteor.loggingIn() && !Meteor.userId()) {
+    replace({
+      pathname: '/login',
+      state: { nextPathname: nextState.location.pathname },
+    });
+  }
+};
 
 Meteor.startup( () => {
 	render(
@@ -12,6 +22,7 @@ Meteor.startup( () => {
 			<Route path="/" component={ App }>
 				{Meteor.userId() ? <IndexRoute component={ Dashboard } /> : <IndexRoute component={ LoginRegistration } /> }
 				<Route path="/login" component={ LoginRegistration } />
+				<Route name="newBeer" path="/beers/new" component={ NewBeer } onEnter={ authenticate } />
 			</Route>
 		</Router>,
 		document.getElementById('render-target')
