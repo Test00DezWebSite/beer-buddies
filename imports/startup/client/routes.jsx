@@ -3,7 +3,7 @@ import { render } from 'react-dom';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Meteor } from 'meteor/meteor';
 import { App } from '../../ui/layouts/app.jsx';
-import { Dashboard } from '../../ui/components/beers/dashboard.jsx';
+import Dashboard from '../../ui/containers/Dashboard.js';
 import LoginRegistration from  '../../ui/components/loginRegistration.jsx';
 import NewBeer from '../../ui/pages/NewBeer.js';
 import Beers from '../../ui/pages/Beers.js';

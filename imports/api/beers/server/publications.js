@@ -8,3 +8,7 @@ Meteor.publish('beers.view', (_id) => {
   check(_id, String);
   return Beers.find(_id);
 });
+
+Meteor.publish('beers.dashboard', () => {
+	return Beers.find({}, {userId: this.userId});
+});
