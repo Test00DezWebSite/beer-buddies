@@ -11,7 +11,7 @@ export const LoggedOutNavigation = () => (
 	        <span className="icon-bar"></span>
 	        <span className="icon-bar"></span>
 	      </button>
-	      <a className="navbar-brand" href="#">Beer Buddies</a>
+	      <a className="navbar-brand" href="/">Beer Buddies</a>
 	    </div>
 
 	    <div className="collapse navbar-collapse" id="main-nav">
